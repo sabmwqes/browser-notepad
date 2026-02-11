@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- 背景（メモ帳の紙，ダークモード） -->
+  <rect x="4" y="2" width="24" height="28" rx="3" fill="#35b3fb"/>
+  <rect x="6" y="4" width="20" height="24" rx="2" fill="#1e293b"/>
+
+  <!-- 横線（メモ帳の罫線） -->
+  <line x1="9" y1="11" x2="23" y2="11" stroke="#4ff3ff" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="9" y1="16" x2="23" y2="16" stroke="#4ff3ff" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="9" y1="21" x2="18" y2="21" stroke="#4ff3ff" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
