@@ -5,6 +5,7 @@ import { StatusBar } from './components/StatusBar';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import type { Note } from './types/note';
 import { STORAGE_KEY } from './types/note';
+import { getCharacterCount } from './utils/string';
 
 function App() {
   // ローカルストレージからメモを取得・保存
@@ -49,7 +50,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="app-title">
-          Browser Notepad <span className="app-version">v0.1.0</span>
+          Browser Notepad <span className="app-version">v0.1.1</span>
         </h1>
         <div className="app-status">
           {isSaved ? (
@@ -64,7 +65,7 @@ function App() {
         <Editor content={note.content} onChange={handleContentChange} />
       </main>
 
-      <StatusBar characterCount={note.content.length} updatedAt={note.updatedAt} />
+      <StatusBar characterCount={getCharacterCount(note.content)} updatedAt={note.updatedAt} />
     </div>
   );
 }
