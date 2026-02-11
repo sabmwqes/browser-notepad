@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+import { Editor } from './components/Editor';
+import { StatusBar } from './components/StatusBar';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { Note, STORAGE_KEY } from './types/note';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // ローカルストレージからメモを取得・保存
+  const [note, setNote] = useLocalStorage<Note>(STORAGE_KEY, {
+    content: '',
+    updatedAt: new Date().toLocaleString('ja-JP'),
+  });
+
+  // メモの内容を更新
+  const handleContentChange = (content: string) => {
+    setNote({
+      content,
+      updatedAt: new Date().toLocaleString('ja-JP'),
+    });
+  };
+
+  // 自動保存の状態表示用（オプション）
+  const [isSaved, setIsSaved] = useState(true);
+
+  // 自動保存のデバウンス処理
+  useEffect(() => {
+    setIsSaved(false);
+    const timer = setTimeout(() => {
+      setIsSaved(true);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [note.content]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-title">Browser Notepad</h1>
+        <div className="app-status">
+          {isSaved ? (
+            <span className="saved-indicator">✓ 保存済み</span>
+          ) : (
+            <span className="saving-indicator">保存中...</span>
+          )}
+        </div>
+      </header>
+
+      <main className="app-main">
+        <Editor content={note.content} onChange={handleContentChange} />
+      </main>
+
+      <StatusBar characterCount={note.content.length} updatedAt={note.updatedAt} />
+    </div>
+  );
 }
 
-export default App
+export default App;
