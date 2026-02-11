@@ -48,7 +48,9 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1 className="app-title">Browser Notepad</h1>
+        <h1 className="app-title">
+          Browser Notepad <span className="app-version">v0.1.0</span>
+        </h1>
         <div className="app-status">
           {isSaved ? (
             <span className="saved-indicator">✓ 保存済み</span>

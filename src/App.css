@@ -23,6 +23,14 @@
   color: var(--text-color);
 }
 
+.app-version {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  margin-left: 0.5rem;
+}
+
 .app-status {
   display: flex;
   align-items: center;
@@ -55,6 +63,11 @@
 
   .app-title {
     font-size: 1.25rem;
+  }
+
+  .app-version {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
   }
 
   .app-status {
