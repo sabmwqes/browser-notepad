@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { Editor } from './components/Editor';
 import { StatusBar } from './components/StatusBar';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { Note, STORAGE_KEY } from './types/note';
+import type { Note } from './types/note';
+import { STORAGE_KEY } from './types/note';
 
 function App() {
   // ローカルストレージからメモを取得・保存
@@ -14,6 +15,7 @@ function App() {
 
   // メモの内容を更新
   const handleContentChange = (content: string) => {
+    setIsSaved(false);
     setNote({
       content,
       updatedAt: new Date().toLocaleString('ja-JP'),
@@ -22,16 +24,26 @@ function App() {
 
   // 自動保存の状態表示用（オプション）
   const [isSaved, setIsSaved] = useState(true);
+  const saveTimerRef = useRef<number | undefined>(undefined);
 
   // 自動保存のデバウンス処理
   useEffect(() => {
-    setIsSaved(false);
-    const timer = setTimeout(() => {
-      setIsSaved(true);
-    }, 500);
+    if (saveTimerRef.current) {
+      clearTimeout(saveTimerRef.current);
+    }
 
-    return () => clearTimeout(timer);
-  }, [note.content]);
+    if (!isSaved) {
+      saveTimerRef.current = window.setTimeout(() => {
+        setIsSaved(true);
+      }, 500);
+    }
+
+    return () => {
+      if (saveTimerRef.current) {
+        clearTimeout(saveTimerRef.current);
+      }
+    };
+  }, [note.content, isSaved]);
 
   return (
     <div className="app">
