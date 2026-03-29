@@ -15,8 +15,9 @@
   font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
   line-height: 1.5;
-  background-color: var(--bg-color);
+  background-color: var(--editor-bg, var(--bg-color));
   color: var(--text-color);
+  transition: background-color 0.15s;
 }
 
 .editor-textarea::placeholder {

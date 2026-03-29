@@ -16,6 +16,52 @@
   --border-color: #e5e7eb;
   --success-color: #10b981;
 
+  /* エディタ背景（アクティブタブに応じてJS側で上書き） */
+  --editor-bg: var(--bg-color);
+
+  /* --- タブカラー（ライト） --- */
+  /* Common（白/グレー） */
+  --tab-common-bg: #f9fafb;
+  --tab-common-hover: #f3f4f6;
+  --tab-common-active: #ffffff;
+  --tab-common-accent: #6b7280;
+  --tab-common-editor: #ffffff;
+
+  /* Uncommon（緑） */
+  --tab-uncommon-bg: #f0fdf4;
+  --tab-uncommon-hover: #dcfce7;
+  --tab-uncommon-active: #f0fdf4;
+  --tab-uncommon-accent: #16a34a;
+  --tab-uncommon-editor: #f7fef9;
+
+  /* Rare（青） */
+  --tab-rare-bg: #eff6ff;
+  --tab-rare-hover: #dbeafe;
+  --tab-rare-active: #eff6ff;
+  --tab-rare-accent: #2563eb;
+  --tab-rare-editor: #f5f9ff;
+
+  /* Epic（紫） */
+  --tab-epic-bg: #faf5ff;
+  --tab-epic-hover: #f3e8ff;
+  --tab-epic-active: #faf5ff;
+  --tab-epic-accent: #9333ea;
+  --tab-epic-editor: #fcf8ff;
+
+  /* Legendary（黄） */
+  --tab-legendary-bg: #fefce8;
+  --tab-legendary-hover: #fef9c3;
+  --tab-legendary-active: #fefce8;
+  --tab-legendary-accent: #ca8a04;
+  --tab-legendary-editor: #fffef5;
+
+  /* Mythic（桃） */
+  --tab-mythic-bg: #fff1fd;
+  --tab-mythic-hover: #ffe4e6;
+  --tab-mythic-active: #fff1fe;
+  --tab-mythic-accent: #e22ad9;
+  --tab-mythic-editor: #fff7fe;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -33,6 +79,51 @@
     --status-bar-bg: #1f2937;
     --border-color: #374151;
     --success-color: #34d399;
+
+    --editor-bg: var(--bg-color);
+
+    /* --- タブカラー（ダーク） --- */
+    /* Common（グレー） */
+    --tab-common-bg: #1f2937;
+    --tab-common-hover: #283548;
+    --tab-common-active: #1a1a1a;
+    --tab-common-accent: #9ca3af;
+    --tab-common-editor: #1a1a1a;
+
+    /* Uncommon（緑） */
+    --tab-uncommon-bg: #14291a;
+    --tab-uncommon-hover: #1a3524;
+    --tab-uncommon-active: #0f1f14;
+    --tab-uncommon-accent: #4ade80;
+    --tab-uncommon-editor: #121e15;
+
+    /* Rare（青） */
+    --tab-rare-bg: #152038;
+    --tab-rare-hover: #1c2b4a;
+    --tab-rare-active: #111a2e;
+    --tab-rare-accent: #60a5fa;
+    --tab-rare-editor: #121926;
+
+    /* Epic（紫） */
+    --tab-epic-bg: #1e1530;
+    --tab-epic-hover: #281d40;
+    --tab-epic-active: #171025;
+    --tab-epic-accent: #c084fc;
+    --tab-epic-editor: #151020;
+
+    /* Legendary（黄） */
+    --tab-legendary-bg: #26200a;
+    --tab-legendary-hover: #332a0f;
+    --tab-legendary-active: #1e1a08;
+    --tab-legendary-accent: #facc15;
+    --tab-legendary-editor: #1a1708;
+
+    /* Mythic（桃） */
+    --tab-mythic-bg: #2a1326;
+    --tab-mythic-hover: #381a33;
+    --tab-mythic-active: #200e1d;
+    --tab-mythic-accent: #fb71e9;
+    --tab-mythic-editor: #1c0e1c;
   }
 }
 

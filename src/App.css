@@ -56,6 +56,14 @@
   overflow: hidden;
 }
 
+/* --- テーマ別エディタ背景 --- */
+.app-theme-common { --editor-bg: var(--tab-common-editor); }
+.app-theme-uncommon { --editor-bg: var(--tab-uncommon-editor); }
+.app-theme-rare { --editor-bg: var(--tab-rare-editor); }
+.app-theme-epic { --editor-bg: var(--tab-epic-editor); }
+.app-theme-legendary { --editor-bg: var(--tab-legendary-editor); }
+.app-theme-mythic { --editor-bg: var(--tab-mythic-editor); }
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .app-header {
