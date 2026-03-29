@@ -49,8 +49,13 @@ describe('getCharacterCount', () => {
   });
 
   it('改行を含むテキストを正しくカウントする', () => {
-    expect(getCharacterCount('Hello\nWorld')).toBe(11);
-    expect(getCharacterCount('行1\n行2\n行3')).toBe(8);
+    expect(getCharacterCount('Hello\nWorld')).toBe(10);
+    expect(getCharacterCount('行1\n行2\n行3')).toBe(6);
+  });
+
+  it('CRLF改行も文字数に含めない', () => {
+    expect(getCharacterCount('A\r\nB')).toBe(2);
+    expect(getCharacterCount('日本語\r\nテスト')).toBe(6);
   });
 
   it('スペースを含むテキストを正しくカウントする', () => {
